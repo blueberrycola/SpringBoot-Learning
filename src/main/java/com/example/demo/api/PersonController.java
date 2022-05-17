@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("api/v1/person") //Define endpoint in rest api
+@RequestMapping("api/person") //Define endpoint in rest api
 @RestController //Expose endpoints clients can consume
 public class PersonController {
     private final PersonService personService;
