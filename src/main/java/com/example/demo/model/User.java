@@ -1,8 +1,16 @@
 package com.example.demo.model;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.UUID;
 
-//Following the schema with the spring boot tutorial this user will be used for my web application
+/*
+This is a java object that will model each user for the backend
+of vue-pseudogrubhub.
+
+For each user:
+there is a unique UUID. This UUID will be the id key for each
+object in MongoDB
+ */
 public class User {
     private final UUID id;
     private final String username;
@@ -10,7 +18,21 @@ public class User {
     private final String email;
     private final String[] starredPlaces;
 
-    public User(UUID id, String username, String password, String email, String[] starredPlaces) {
+    @Autowired //Test Constructor for Rest API
+    public User(UUID id, String username){
+        this.id = id;
+        this.username = username;
+        this.password = "Test";
+        this.email = "Test@Test.com";
+        String[] list = {"KFC", "Jalisco's Deli", "Culver's"};
+        this.starredPlaces = list;
+    }
+
+    public User(UUID id,
+                String username,
+                String password,
+                String email,
+                String[] starredPlaces) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -22,7 +44,7 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getPassword() { return password;}
