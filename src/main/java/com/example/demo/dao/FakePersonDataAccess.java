@@ -9,6 +9,7 @@ import java.util.UUID;
 @Repository("fakeDao") //This class serves as a repository to "fakeDao"
 public class FakePersonDataAccess implements PersonDao{
     private static List<Person> DB = new ArrayList<>();
+
     @Override
     public int insertPerson(UUID id, Person person) {
         DB.add(new Person(id, person.getName()));
