@@ -7,18 +7,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserDao {
-
+    int insertUser(User user);
     List<User> returnAllUsers();
 
     Optional<User> selectUserById(UUID id);
     int deleteUserById(UUID id);
     int updateUserById(UUID id, User newuser);
 
-    int insertUser(UUID id, User user);
-    default int insertUser(User user) {
-        UUID id = UUID.randomUUID();
-        return insertUser(id, user);
-    }
+
 
 
 }

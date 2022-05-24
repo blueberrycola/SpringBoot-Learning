@@ -1,6 +1,4 @@
 package com.example.demo.dao;
-import com.example.demo.dao.UserDao;
-import com.example.demo.model.Person;
 import com.example.demo.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -15,8 +13,8 @@ public class UserDataAccess implements UserDao{
     private static List<User> DB = new ArrayList<>(); //Not actual DB, yet
     //Creates new user for DB
     @Override
-    public int insertUser(UUID id, User user) {
-        DB.add(new User(id, user.getUsername()));
+    public int insertUser(User user) {
+        DB.add(new User(user.getUsername(), user.getPassword(), user.getConfPassword(), user.getEmail()));
         return 1;
     }
 
