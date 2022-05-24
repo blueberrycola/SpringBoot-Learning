@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RequestMapping("register/user") //Define endpoint in rest api
 @RestController //Expose endpoints clients can consume
+@CrossOrigin("http://localhost:3000") //Reference the origin of frontend app
 public class UserController {
     private final UserService userService;
 

@@ -24,15 +24,18 @@ public class User {
     public User(@JsonProperty("username") String username,
                 @JsonProperty("password") String password,
                 @JsonProperty("cpass") String confpassword,
-                @JsonProperty("email") String email){
+                @JsonProperty("email") String email) {
         this.id = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.confPassword = confpassword;
         this.email = email;
         this.starredPlaces = null;
+        System.out.println("User Created with the following" +
+                "\nUsername: " + username +
+                "\nPassword: " + password +
+                "\nEmail: " + email);
     }
-
     public User(UUID id,
                 String username,
                 String password,
