@@ -28,39 +28,31 @@ public class UserDataAccess implements UserDao{
     that equals the following UUID. List its First Time being spotted.
      */
     @Override
-    public Optional<User> selectUserById(UUID id) {
+    public Optional<User> selectUserById(String uname) {
         //
         return DB.stream()
-                .filter(person -> person.getId().equals(id))
+                .filter(person -> person.getUsername().equals(uname))
                 .findFirst();
 
     }
 
     @Override
     public int deleteUserById(UUID id) {
-        Optional<User> personMaybe = selectUserById(id); //Attempt to find user
+        /*Optional<User> personMaybe = selectUserById(id); //Attempt to find user
         if(personMaybe.isEmpty()) {
             return 0; //Fail
         } else {
             DB.remove(personMaybe.get());
             return 1; //User Found
-        }
+        }*/
+        UUID foo = id;
+        return 0;
+
     }
 
     @Override
     public int updateUserById(UUID id, User newuser) {
-        return selectUserById(id)
-                .map(person -> {
-                    int indexOfUserToUpdate = DB.indexOf(newuser); //Find index in list obj
-                    if(indexOfUserToUpdate >= 0) {
-                        DB.remove(indexOfUserToUpdate);
-                        insertUser(newuser);
-                        return 1; //Success
-                    } else {
-                        return 0; //User not found
-                    }
-                })
-                .orElse(0);
+        return 0;
     }
 
 

@@ -10,7 +10,7 @@ public interface UserDao {
     int insertUser(User user);
     List<User> returnAllUsers();
 
-    Optional<User> selectUserById(UUID id);
+    Optional<User> selectUserById(String unname);
     int deleteUserById(UUID id);
     int updateUserById(UUID id, User newuser);
 

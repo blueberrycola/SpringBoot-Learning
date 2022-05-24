@@ -22,7 +22,7 @@ public class UserService {
 
     public List<User> retAllUsers() {return userDao.returnAllUsers();}
 
-    public Optional<User> getUserById(UUID id) {return userDao.selectUserById(id);}
+    public Optional<User> getUserById(String uname) {return userDao.selectUserById(uname);}
 
     public int deletePerson(UUID id) {
         return userDao.deleteUserById(id);
