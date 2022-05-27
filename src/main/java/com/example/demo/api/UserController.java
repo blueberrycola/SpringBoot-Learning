@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("register/user") //Define endpoint in rest api
+@RequestMapping("user") //Define endpoint in rest api
 @RestController //Expose endpoints clients can consume
 @CrossOrigin("http://localhost:3000") //Reference the origin of frontend app
 public class UserController {
@@ -19,16 +19,16 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {this.userService = userService;}
 
-    @PostMapping
+    @PostMapping("/register")
     public void addUser(@RequestBody User user) {userService.addUser(user);}
 
-    @GetMapping
+    @GetMapping("/allusers")
     public List<User> getAllUsers() {
         List<User> u = userService.retAllUsers();
         return u;
     }
-    @GetMapping(path = {"username"})
-    public User getUserById(@PathVariable("username") String username) {
+    @GetMapping("/{user}")
+    public User getUserById(@PathVariable("user") String username) {
         return userService.getUserById(username)
                 .orElse(null);
     }

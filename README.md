@@ -27,3 +27,10 @@ First 15 Commits:
         ADD/GET ONLY
         FIXME: update, del, listall
 
+
+RESTFUL API METHODS:
+
+localhost:8080/user/{username} GET: return json attached to account
+              /user/register POST: Register user into json file
+**DEBUGGING TOOL**:              /user/allusers GET: List all users 
+
